@@ -1,0 +1,50 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/transactions",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/transactions",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "SwaggerKey": "api-transactions"
+    },
+    {
+      "DownstreamPathTemplate": "/api/transactions/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/transactions/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "api-transactions"
+    },
+    {
+      "DownstreamPathTemplate": "/api/customers",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 8081
+        }
+      ],
+      "UpstreamPathTemplate": "/customers",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "SwaggerKey": "api-customers"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:9090"
+  },
+  "SwaggerEndPoints": {
+    "api-transactions": "http://localhost:8080/swagger/v1/swagger.json",
+    "api-customers": "http://localhost:8081/swagger/v1/swagger.json"
+  }
+}
